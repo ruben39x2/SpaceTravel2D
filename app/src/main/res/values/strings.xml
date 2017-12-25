@@ -1,0 +1,17 @@
+<resources xmlns:xliff="rn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Space Travel 2D</string>
+    <string name="background_message" translatable="false">HAVE\nFUN</string>
+    <string name="start">START</string>
+    <string name="boom" translatable="false">BOOM!</string>
+    <string name="gameover_message">You have crashed! The monkeys on board the spaceship are going to need some hours to fix it. Come later!</string>
+    <string name="gameover_title">GAME OVER!</string>
+    <string name="ok">OK!</string>
+    <string name="ops_title">OPS!</string>
+    <string name="connection_failure_msg">There was a problem connecting to the spaceship to retrieve the current time. Try again later!</string>
+    <string name="repairing_title">REPAIRING…</string>
+    <string name="asking_time_msg">Asking the current time…</string>
+    <string name="not_repaired_msg">You cannot continue your travel because your spaceship is currently being repaired. It will take about <xliff:g id="hours" example="7" >%s</xliff:g> hours and <xliff:g id="minutes" example="35" >%s</xliff:g> minutes to have it yummy. Come later!</string>
+    <string name="notification_title">Ready!</string>
+    <string name="notification_body">Your spaceship is repaired</string>
+    <string name="repairing_notice">REPAIRING SPACESHIP…</string>
+</resources>

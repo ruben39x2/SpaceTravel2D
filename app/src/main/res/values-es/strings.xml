@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="rn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Space Travel 2D</string>
+    <string name="asking_time_msg">Consultando hora en el servidor…</string>
+    <string name="connection_failure_msg">Hubo un problema conectándose a la nave para obtener la hora actual. ¡Prueba más tarde!</string>
+    <string name="gameover_message">¡Has chocado! Los monos abordo de la nave espacial van a necesitar algunas horas para arreglarla. ¡Ven luego!</string>
+    <string name="gameover_title">¡FIN DEL JUEGO!</string>
+    <string name="not_repaired_msg">No puedes continuar tu viaje porque tu nave espacial está siendo reparada. Va a tardar sobre <xliff:g id="hours" example="7">%s</xliff:g> horas y <xliff:g id="minutes" example="35">%s</xliff:g> minutos tenerla a punto. ¡Ven dentro de un rato!</string>
+    <string name="notification_body">Tu nave espacial está reparada</string>
+    <string name="notification_title">¡Listo!</string>
+    <string name="ok">OK</string>
+    <string name="ops_title">¡UPS!</string>
+    <string name="repairing_notice">REPARANDO NAVE…</string>
+    <string name="repairing_title">REPARANDO…</string>
+    <string name="start">COMENZAR</string>
+</resources>

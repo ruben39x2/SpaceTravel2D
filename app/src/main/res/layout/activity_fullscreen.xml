@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/main_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#000000"
+                tools:context="spacetravel.mobile.cenisoft.com.spacetravel2d.FullscreenActivity">
+
+    <TextView
+        android:id="@+id/text_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:text="0"/>
+
+    <TextView
+        android:id="@+id/text_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:textColor="#1e2021"
+        android:textSize="50sp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:enabled="false"
+        android:padding="10dp"
+        android:alpha="0.5"
+        android:text="..."
+        android:textColor="#000"
+        android:background="#fff"/>
+
+    <ImageView
+        android:id="@+id/spaceship"
+        android:layout_width="80px"
+        android:layout_height="69px"
+        android:src="@drawable/spaceship"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="25dp"/>
+
+</RelativeLayout>
