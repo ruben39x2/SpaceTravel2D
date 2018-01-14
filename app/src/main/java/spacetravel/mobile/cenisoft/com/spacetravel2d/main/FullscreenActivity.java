@@ -3,15 +3,10 @@ package spacetravel.mobile.cenisoft.com.spacetravel2d.main;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
@@ -41,7 +36,7 @@ public class FullscreenActivity extends AppCompatActivity
    public static final String PREFS_NAME = "AsteroidsShips3";
    public static final String PREFS_SCORE_KEY = "score";
    public static final String PREFS_CRASHED_DATE_KEY = "dateCrashed";
-   public static final long REPAIR_INTERVAL = (long) 21600000; /* 6 hours */
+   public static final long REPAIR_INTERVAL = (long) 10800000; /* 3 hours */
    public static final long ANIMATION_DURATION = 2000; /* Spaceship velocity */
 
    private RelativeLayout layout;
@@ -96,13 +91,6 @@ public class FullscreenActivity extends AppCompatActivity
 
       connectingDialog = displayAlert("", getString(R.string.asking_time_msg), false, false);
       ServerTimeAsker.askTime(this);
-
-      AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-      Intent intent = new Intent(this, AlarmReceiver.class);
-      PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
-      alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-              SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_DAY,
-              AlarmManager.INTERVAL_DAY, alarmIntent);
    }
 
    @Override
@@ -123,7 +111,7 @@ public class FullscreenActivity extends AppCompatActivity
                setGameOverBackgroundText();
                gameStarted = false;
                showEndGameAfterDelay();
-               saveScore();
+               saveData();
             }
          });
       }
@@ -197,9 +185,6 @@ public class FullscreenActivity extends AppCompatActivity
       button.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-            SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
-            editor.putLong(PREFS_CRASHED_DATE_KEY, serverTime);
-            editor.apply();
             layout.removeView(v);
             startGame();
          }
@@ -279,9 +264,13 @@ public class FullscreenActivity extends AppCompatActivity
       scoreTextView.setText(String.valueOf(score));
    }
 
-   private void saveScore() {
+   private void saveData() {
       SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
       editor.putLong(PREFS_SCORE_KEY, this.score);
+      /* Save the server time only after game ended (spaceship crashed). This way users can
+       * play again if the game crashed or was interrupted and didn't finalize */
+      editor.putLong(PREFS_CRASHED_DATE_KEY, this.serverTime);
+      editor.apply();
       editor.apply();
    }
 
